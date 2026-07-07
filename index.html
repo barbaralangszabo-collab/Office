@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>B1-B2 Corporate Communications Master Trainer</title>
+
+<style>
+  /* --- Design Brief Variables (Indigo, Mint, and Deepened Typography) --- */
+  :root {
+    --primary-300: #C7D2FE; 
+    --primary-500: #6366F1; 
+    --primary-700: #4338CA; /* Deep Indigo Main */
+    --secondary-300: #A7F3D0; 
+    --secondary-500: #10B981; /* Fresh Mint Active */
+    --secondary-700: #047857; 
+    --accent-300: #FDE047; 
+    --accent-500: #EAB308;
+    --accent-700: #A16207;
+    --bg: #F8FAFC; 
+    --surface: #FFFFFF;
+    --surface-alt: #F1F5F9;
+    --border: #E2E8F0;
+    --text: #0F172A; 
+    --text-2: #334155; 
+    --text-muted: #64748B;
+    --text-inverse: #FFFFFF;
+    --success: #059669;
+    --warning: #D97706;
+    --error: #DC2626;
+    --info: #2563EB;
+
+    --font-main: "Inter", system-ui, sans-serif;
+    --shadow-card: 0 6px 24px rgba(15, 23, 42, 0.06);
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    font-family: var(--font-main);
+    background-color: var(--bg);
+    padding: 40px 20px;
+    font-size: 18px; 
+    color: var(--text);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  .container {
+    max-width: 1400px; 
+    margin: 0 auto;
+    background: var(--surface);
+    padding: 45px;
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border);
+  }
+
+  /* --- High-Sharpness Image Gallery Grid --- */
+  .intro-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; 
+    margin-bottom: 36px;
+  }
+
+  .gallery-card {
+    position: relative;
+    width: 100%;
+    height: 180px; 
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    will-change: transform;
+    transform: scale(1.001) translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .gallery-card:hover img {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+
+  h1 {
+    font-size: 38px; 
+    color: var(--primary-700);
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.75px;
+  }
+
+  .subtitle {
+    color: var(--text-2);
+    font-size: 20px; 
+    margin-bottom: 36px;
+  }
+
+  /* --- Navigation Menu --- */
+  .topic-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); 
+    gap: 12px;
+    margin-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 36px;
+  }
+
+  .topic-btn {
+    background-color: var(--surface-alt);
+    border: 1px solid var(--border);
+    padding: 14px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px; 
+    font-weight: 600;
+    color: var(--text-2);
+    text-align: left;
+    transition: var(--transition);
+    line-height: 1.35;
+  }
+
+  .topic-btn:hover {
+    background-color: var(--primary-300);
+    color: var(--primary-700);
+  }
+
+  .topic-btn.active {
+    background-color: var(--primary-700);
+    border-color: var(--primary-700);
+    color: var(--text-inverse);
+  }
+
+  .section-label {
+    font-size: 24px; 
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--primary-700);
+    border-left: 5px solid var(--secondary-500);
+    padding-left: 14px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+  }
+
+  /* --- Interactive Workspace Layout --- */
+  .learning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+
+  .info-panel {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    height: 720px; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+  }
+
+  .panel-body-scroll {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding-right: 6px;
+  }
+
+  .panel-header {
+    font-weight: 700;
+    font-size: 21px; 
+    margin-bottom: 16px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+  }
+
+  .keyword-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .keyword-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 14px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-700);
+  }
+  
+  .keyword-tag span {
+    color: var(--text-2);
+    font-weight: 400;
+    font-size: 15px; 
+    display: block;
+    margin-top: 6px;
+    line-height: 1.45;
+  }
+
+  /* --- Flashcard Area --- */
+  .flashcard-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 16px;
+  }
+
+  .flashcard-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 340px; 
+    cursor: pointer;
+  }
+
+  .flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .flashcard.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-front {
+    background: var(--primary-700);
+    color: var(--text-inverse);
+    font-weight: 700;
+    font-size: 26px; 
+    border-bottom: 8px solid var(--secondary-500);
+  }
+
+  .card-back {
+    background: var(--surface);
+    color: var(--text);
+    transform: rotateY(180deg);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  .card-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .card-nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-2);
+  }
+  .card-nav-btn:hover { 
+    background: var(--secondary-300); 
+    color: var(--text);
+    border-color: var(--secondary-500);
+  }
+
+  /* --- Game Workspace Areas --- */
+  .game-area {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 36px;
+  }
+
+  @media (max-width: 1024px) {
+    .learning-grid, .game-area {
+      grid-template-columns: 1fr;
+    }
+    .info-panel { height: 500px; }
+  }
+
+  .pool-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .phrase-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16.5px;
+    color: var(--text);
+    transition: var(--transition);
+    font-weight: 400;
+    box-shadow: var(--shadow-card);
+  }
+
+  .phrase-btn:hover:not(:disabled) {
+    border-color: var(--primary-500);
+    background-color: var(--surface-alt);
+    transform: translateY(-2px);
+  }
+
+  .phrase-btn.used {
+    opacity: 0.25;
+    background-color: var(--border);
+    cursor: not-allowed;
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .conversation-box {
+    background: var(--surface-alt);
+    border: 2px dashed var(--border);
+    border-radius: 16px;
+    padding: 26px;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .line-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary-700);
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 16.5px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .role-tag {
+    display: inline-block;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    margin-right: 12px;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .role-a { background-color: var(--primary-700); color: var(--text-inverse); }
+  .role-b { background-color: var(--secondary-500); color: var(--text-inverse); }
+
+  .controls-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .action-btn {
+    flex: 1;
+    min-width: 150px;
+    padding: 16px 22px;
+    border-radius: 8px;
+    font-size: 16.5px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+    text-align: center;
+  }
+
+  .btn-check { background-color: var(--primary-700); color: var(--text-inverse); }
+  .btn-check:hover { filter: brightness(92%); }
+  .btn-reveal { background-color: var(--secondary-700); color: var(--text-inverse); }
+  .btn-reveal:hover { filter: brightness(92%); }
+  
+  .btn-reset { 
+    background-color: transparent; 
+    border: 2px solid var(--border); 
+    color: var(--text-2); 
+  }
+  .btn-reset:hover { 
+    border-color: var(--text); 
+    color: var(--text); 
+    background-color: var(--surface-alt);
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="intro-gallery">
+    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="Workspace Consultation"></div>
+    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=400&q=80" alt="Modern Team Hub"></div>
+    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=400&q=80" alt="Operational Execution Desk"></div>
+    <div class="gallery-card"><img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=400&q=80" alt="Corporate Briefing Session"></div>
+  </div>
+
+  <h1>Professional Office Communications</h1>
+  <p class="subtitle">An interactive training workspace to practice professional office conversations and master workplace English.</p>
+
+  <div class="section-label">Step 1: Select a Corporate Scenario</div>
+  <div class="topic-menu" id="topicMenu"></div>
+
+  <div class="section-label">Step 2: Lexical Analysis &amp; Script Study</div>
+  <div class="learning-grid">
+    <div class="info-panel">
+      <div class="panel-header">🔑 Office Language Keywords (10 Items)</div>
+      <div class="panel-body-scroll">
+        <div class="keyword-list" id="keywordBox"></div>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <div class="panel-header">📖 Chronological Script Reference</div>
+      <div class="panel-body-scroll" id="sampleConvBox" style="font-size: 16px;"></div>
+    </div>
+
+    <div class="info-panel">
+      <div class="panel-header">🎴 Active Recall Flashcards</div>
+      <div class="flashcard-wrapper">
+        <div class="flashcard-container" onclick="toggleCard()">
+          <div class="flashcard" id="cardElement">
+            <div class="card-face card-front" id="cardFrontText">Phrase</div>
+            <div class="card-face card-back" id="cardBackText">Definition</div>
+          </div>
+        </div>
+        <div class="card-controls">
+          <button class="card-nav-btn" onclick="prevCard(event)">◀ Prev</button>
+          <span id="cardTracker" style="font-size:16px; font-weight:700; color:var(--text-muted);">1 / 10</span>
+          <button class="card-nav-btn" onclick="nextCard(event)">Next ▶</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Step 3: Interactive Dialogue Reordering Performance</div>
+  <div class="game-area">
+    <div>
+      <div class="panel-header">🔄 Shuffled Workspace Statements</div>
+      <div class="pool-box" id="phrasePool"></div>
+    </div>
+
+    <div>
+      <div class="panel-header">📋 Your Structured Script Layout</div>
+      <div class="conversation-box" id="conversationBox"></div>
+      
+      <div class="controls-row">
+        <button class="action-btn btn-check" onclick="checkConversation()">Check</button>
+        <button class="action-btn btn-reveal" onclick="showCorrectOrder()">Show Key</button>
+        <button class="action-btn btn-reset" onclick="resetConversation()">Clear Options</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const topics = {
+  "1. Welcoming a Visitor & Checking In": {
+    roles: { A: "Receptionist", B: "Visitor" },
+    dialogue: [
+      "Receptionist: Good morning! Welcome to Innovate Corp. How can I help you today?",
+      "Visitor: Hello, I have a meeting with Mr. Davies at ten o'clock. My name is Anna Rathbone.",
+      "Receptionist: Ah, yes, Ms. Rathbone! Please sign in here on our digital guest register.",
+      "Visitor: Of course. Could you please tell me where the nearest restroom is before I go up?",
+      "Receptionist: It's just down the hall on the right. Would you like a tea or coffee while you wait?",
+      "Visitor: No, thanks, I'm fine. I had a coffee at the station right before checking in.",
+      "Receptionist: No problem. Mr. Davies is on the sixth floor, so you can take the lift over there.",
+      "Visitor: Perfect. Thank you for your help and for the warm welcome!"
+    ],
+    keywords: [
+      {word: "Checking in", def: "Arriving at reception and giving your name. | Example: Please report to reception when checking in."},
+      {word: "Digital register", def: "An electronic sign-in screen for guests. | Example: Type your details into our digital register."},
+      {word: "Restroom", def: "A polite word for an office toilet. | Example: The restroom is located down the hall."},
+      {word: "Sign in", def: "To write your name on a visitor list. | Example: All guests must sign in at the front desk."},
+      {word: "Warm welcome", def: "A friendly greeting for a new visitor. | Example: The team gave our client a warm welcome."},
+      {word: "On behalf of", def: "Acting as a representative for someone. | Example: I am welcoming you on behalf of the director."},
+      {word: "Appointment", def: "A planned professional meeting. | Example: I have an appointment with the manager at noon."},
+      {word: "Visitor badge", def: "A plastic pass worn by a guest. | Example: Please wear your visitor badge inside the building."},
+      {word: "Take a seat", def: "A polite way to invite someone to sit down. | Example: You can take a seat in the lounge area."},
+      {word: "Lobby", def: "The main entrance hall of an office building. | Example: Let's meet our guest down in the lobby."}
+    ]
+  },
+  "2. Arranging a Meeting": {
+    roles: { A: "Coordinator", B: "Colleague" },
+    dialogue: [
+      "Coordinator: Hi Sam! Are you free next week? We need to put the project review in our calendar.",
+      "Colleague: Let me check my schedule. I have a lot of appointments, but Tuesday morning is free.",
+      "Coordinator: Perfect, let's schedule it for Tuesday at ten o'clock. Does that work?",
+      "Colleague: Oh, wait. I just remembered I have a breakfast meeting then. Can we make it later?",
+      "Coordinator: What about Wednesday afternoon? Are you doing anything then?",
+      "Colleague: No, Wednesday after lunch is completely open. Let's arrange that.",
+      "Coordinator: Great! I'll send a calendar invite immediately to block that window out.",
+      "Colleague: Excellent. Talk to you later, and thanks for managing the coordination!"
+    ],
+    keywords: [
+      {word: "Calendar invite", def: "A digital meeting request sent via email. | Example: Send me a calendar invite for our chat."},
+      {word: "Schedule", def: "To set a time and date for an event. | Example: Let's schedule the project review for next week."},
+      {word: "Block out", def: "To reserve time in your diary so nobody else can take it. | Example: I always block out an hour for lunch."},
+      {word: "Coordination", def: "Organizing people or schedules to work well together. | Example: This major event requires perfect team coordination."},
+      {word: "Breakfast meeting", def: "A morning work discussion held over breakfast. | Example: We discussed the contract during a breakfast meeting."},
+      {word: "Availability", def: "The times you are free to work or meet. | Example: Please let me know your availability for tomorrow."},
+      {word: "Postpone", def: "To move a meeting to a later date. | Example: We need to postpone the review until Friday afternoon."},
+      {word: "Propose a slot", def: "To suggest a specific time for a meeting. | Example: I will propose a slot on Wednesday morning."},
+      {word: "Conflict", def: "When two events are booked at the same time. | Example: I have a calendar conflict at two o'clock."},
+      {word: "Time window", def: "A specific period of time available for a task. | Example: We have a short time window to submit the application."}
+    ]
+  },
+  "3. The Morning Coffee / Kitchen Gossip": {
+    roles: { A: "Team Leader", B: "Executive" },
+    dialogue: [
+      "Team Leader: Good morning! Making your first coffee? How was your weekend?",
+      "Executive: It was quite nice, thanks! I went for a long walk in the park on Saturday.",
+      "Team Leader: Lovely! Did you do anything exciting on Sunday, or just relax?",
+      "Executive: Honestly, nothing special. I spent all day watching a new series online.",
+      "Team Leader: Sounds perfect. Did you hear the rumors about the marketing department changes?",
+      "Executive: No, I didn't! Tell me everything. Who is moving to the new team?",
+      "Team Leader: Apparently, Sarah is leaving next month. But keep it a secret for now!",
+      "Executive: Wow, that is a huge surprise! Thanks for the update, see you in the meeting!"
+    ],
+    keywords: [
+      {word: "Nothing special", def: "An idiom used to describe minor, routine personal activities. | Example: My weekend was simple, nothing special."},
+      {word: "Gossip", def: "Casual office talk about other people's private lives. | Example: Avoid spreading office gossip in the breakroom."},
+      {word: "Secret", def: "Private information that must not be shared. | Example: Keep this corporate news a secret for now."},
+      {word: "Update", def: "New information about a current situation. | Example: Please give me an update on your progress."},
+      {word: "Communal zone", def: "A shared office area like a kitchen or lounge. | Example: The microwave is located in the communal zone."},
+      {word: "Chitchat", def: "Light, informal conversation about unimportant things. | Example: We did some quick chitchat before the meeting started."},
+      {word: "Catch up", def: "To talk to someone you have not seen in a while. | Example: Let's catch up over lunch today."},
+      {word: "Rumor mill", def: "The unofficial way stories spread around an office. | Example: The rumor mill says our company is buying a new office."},
+      {word: "Banter", def: "Friendly, playful jokes between coworkers. | Example: I enjoy the morning banter in our team room."},
+      {word: "Coffee run", def: "Leaving your desk to fetch hot drinks for colleagues. | Example: I am going on a coffee run, does anyone want tea?"}
+    ]
+  },
+  "4. Handling a Tech Problem": {
+    roles: { A: "Employee", B: "IT Support" },
+    dialogue: [
+      "Employee: Hello IT Support? I have a major problem with the new printer layout link.",
+      "IT Support: Hi! I can send somebody to look at it right away. What exactly is wrong?",
+      "Employee: It won't print my documents urgently, and the wi-fi connection seems very slow.",
+      "IT Support: Understood. Let's check your connection metrics. Have you tried restarting?",
+      "Employee: Yes, I rebooted, but I still can't connect to the main network cluster.",
+      "IT Support: I see an issue on our dashboard. I will fix the configuration parameter now.",
+      "Employee: Thanks! I really need this document ready before our team presentation opens.",
+      "IT Support: No problem. The network is back up. Try sending the print job again now."
+    ],
+    keywords: [
+      {word: "Urgently", def: "An action requiring immediate attention. | Example: We need to fix this software issue urgently."},
+      {word: "Network", def: "A system of connected computers and servers. | Example: The office network went down for ten minutes."},
+      {word: "Dashboard", def: "A user screen showing real-time data and metrics. | Example: Check the support dashboard for new tech tickets."},
+      {word: "Reboot", def: "To restart a computer system to fix a bug. | Example: You should reboot your laptop after updating."},
+      {word: "Print queue", def: "The list of documents waiting to be printed. | Example: Your document is third in the print queue."},
+      {word: "Glitch", def: "A temporary, minor problem in a computer program. | Example: There is a small glitch in the spreadsheet software."},
+      {word: "Tech support", def: "The helpdesk department that fixes hardware and software. | Example: Call tech support if your password does not work."},
+      {word: "Troubleshoot", def: "To find out why a system is failing. | Example: Let's troubleshoot the network error together."},
+      {word: "Bandwidth", def: "The speed or capacity of an internet connection. | Example: Video calls require a lot of office bandwidth."},
+      {word: "Outage", def: "A period when a service or system stops working. | Example: The power outage forced us to work from home."}
+    ]
+  },
+  "5. Requesting a Deadline Extension": {
+    roles: { A: "Team Member", B: "Manager" },
+    dialogue: [
+      "Team Member: Excuse me, do you have a minute? I need to discuss a problem with the report.",
+      "Manager: Sure, go ahead. What is wrong with the data synchronization matrix?",
+      "Team Member: The project data is incredibly complex. I'm afraid I won't finish by Friday.",
+      "Manager: I see. It is important to submit accurate fields, but we cannot delay the client loop.",
+      "Team Member: If I work over the weekend, could we move the deadline parameter to Tuesday morning?",
+      "Manager: That sounds like a reasonable compromise to safeguard our quality metrics.",
+      "Team Member: Thank you! I promise to deliver a flawless final layout by then.",
+      "Manager: Perfect. Make sure you log the update inside our project tracking framework."
+    ],
+    keywords: [
+      {word: "Incredibly", def: "Extremely or to a great degree. | Example: The new financial software is incredibly helpful."},
+      {word: "Deadline", def: "The time or date by which a task must be finished. | Example: The final deadline for the tax report is Friday."},
+      {word: "Compromise", def: "An agreement reached by both sides giving up something. | Example: We found a compromise on the project budget."},
+      {word: "Log", def: "To type information into an official tracking system. | Example: Remember to log your hours before leaving."},
+      {word: "Client loop", def: "The feedback cycle of sharing work with a customer. | Example: Keep the marketing director in the client loop."},
+      {word: "Extend", def: "To make a time period or deadline longer. | Example: Can you extend the presentation deadline by two days?"},
+      {word: "Fall behind", def: "To progress slower than scheduled. | Example: If we lose another worker, we will fall behind."},
+      {word: "Workload", def: "The amount of work assigned to an employee. | Example: My workload doubled after John left the company."},
+      {word: "Deliverable", def: "A product or document that must be given to a client. | Example: The software code is our main deliverable this week."},
+      {word: "Grace period", def: "Extra time allowed to finish something without a penalty. | Example: The boss gave us a one-day grace period for the report."}
+    ]
+  },
+  "6. Giving a Status Update": {
+    roles: { A: "Project Lead", B: "Team" },
+    dialogue: [
+      "Project Lead: Let's start our status loop. Where are we with the marketing presentation?",
+      "Team: We have finished the competitive analysis slides and the budget spreadsheet layouts.",
+      "Project Lead: Excellent progress! Have we completed the primary client demographic matching?",
+      "Team: Not down, but we are running through the final database synchronization parameters now.",
+      "Project Lead: Good. Remember to highlight our core value indicators clearly during the talk.",
+      "Team: Definitely. The narrative layout is structured to prove our efficiency metrics instantly.",
+      "Project Lead: Great! Please upload the final asset bundle to our secure server node by three o'clock.",
+      "Team: Will do. Everything will be locked down and ready for review before the deadline closes."
+    ],
+    keywords: [
+      {word: "Progress", def: "Movement toward a final goal or completion. | Example: We are making excellent progress on the design."},
+      {word: "Synchronize", def: "To make separate records or data match identically. | Example: Let's synchronize our project folders before the call."},
+      {word: "Value indicators", def: "Signs that show a business strategy is profitable. | Example: Customer savings are great value indicators."},
+      {word: "Asset bundle", def: "A collection of completed files grouped together. | Example: Please download the asset bundle from the server."},
+      {word: "Status loop", def: "A short team meeting to review progress metrics. | Example: We have a quick status loop every morning at nine."},
+      {word: "On track", def: "Proceeding exactly as planned according to schedule. | Example: The development team is perfectly on track."},
+      {word: "Milestone", def: "An important stage or achievement in a long project. | Example: Launching the landing page is a major milestone."},
+      {word: "In progress", def: "Currently being worked on; not finished. | Example: The slide design is currently in progress."},
+      {word: "Bottleneck", def: "Something that delays the speed of a whole project. | Example: Legal approval created a bottleneck for the contract."},
+      {word: "Sign off", def: "To give official approval to finish a task phase. | Example: The manager needs to sign off on the design."}
+    ]
+  },
+  "7. Dealing with an Angry Customer": {
+    roles: { A: "Support Agent", B: "Client" },
+    dialogue: [
+      "Support Agent: Customer Support, how can I help you? I understand there is an issue.",
+      "Client: Yes! I am furious! Your billing system processed my invoice twice last night!",
+      "Support Agent: I am really sorry to hear that. Let's look into your account metrics immediately.",
+      "Client: This is completely unacceptable! I want a full refund processed straight away!",
+      "Support Agent: Absolutely, sir. I see the duplicate error parameter on my support dashboard now.",
+      "Client: Good. How long will it take for the cash to return to my account profile?",
+      "Support Agent: I will trigger the refund trace right now. It will settle within twenty-four hours.",
+      "Client: Fine. Make sure I receive an official e-mail confirmation when it closes!"
+    ],
+    keywords: [
+      {word: "Furious", def: "Extremely angry or frustrated. | Example: The customer was furious about the wrong delivery."},
+      {word: "Straight away", def: "Right now without any waiting time. | Example: I will fix this invoice error straight away."},
+      {word: "Refund trace", def: "An investigation to follow a returned cash payment. | Example: IT initiated a refund trace for the duplicate fee."},
+      {word: "Settle", def: "When bank funds fully arrive in an account. | Example: Credit card payments usually settle in three days."},
+      {word: "Billing", def: "The department or process handling customer invoices. | Example: Please send your receipt to the billing office."},
+      {word: "Apologize", def: "To say sorry officially for a company mistake. | Example: We apologize for the delay in processing your order."},
+      {word: "Escalate", def: "To pass a complex issue up to a senior manager. | Example: If the client stays angry, escalate this to the director."},
+      {word: "Discrepancy", def: "An error or difference between two sets of numbers. | Example: I found a discrepancy between the receipts and the ledger."},
+      {word: "Resolution", def: "The final solution to a customer problem. | Example: The agent provided a fast resolution by replacing the item."},
+      {word: "Compensation", def: "Money or rewards given to make up for a bad experience. | Example: We offered a free month of service as compensation."}
+    ]
+  },
+  "8. On a Video Call (Teams/Zoom)": {
+    roles: { A: "Meeting Host", B: "Remote Worker" },
+    dialogue: [
+      "Meeting Host: Hello everyone! Can you hear me? I think we are all on line now.",
+      "Remote Worker: Hi! Your video layout looks fine, but your audio stream is dropping out.",
+      "Meeting Host: Let me check my headset wi-fi metrics. Is the audio track better now?",
+      "Remote Worker: No, you are still breaking up. Wait, look at the bar. You are muted now!",
+      "Meeting Host: Oh, my mistake! The microphone switch was locked down on mute status.",
+      "Remote Worker: Haha, no problem! 'You are muted' is the most common phrase of the year!",
+      "Meeting Host: Right, let's share my presentation screen node so we can see the figures cleanly.",
+      "Remote Worker: Perfect. The slide layout has loaded smoothly on my dashboard monitor now."
+    ],
+    keywords: [
+      {word: "On line", def: "Connected to the internet or a live stream. | Example: Make sure you are on line before the call starts."},
+      {word: "Muted", def: "When a user's microphone is turned off completely. | Example: John tried to speak, but he was completely muted."},
+      {word: "Dropping out", def: "When an internet connection cuts in and out. | Example: Your voice is dropping out because of the weak signal."},
+      {word: "Breaking up", def: "When a person's digital audio fragments into small pieces. | Example: Please repeat that statement, you are breaking up."},
+      {word: "Monitor", def: "The desktop screen used to display files. | Example: I plugged my laptop into a larger external monitor."},
+      {word: "Lag", def: "A delay between an action and its appearance on screen. | Example: There is a severe lag on the video stream."},
+      {word: "Share screen", def: "Allowing call participants to see your monitor. | Example: Let me share screen so you can view the charts."},
+      {word: "Echo", def: "Hearing your own voice repeated back over a call microphone. | Example: Wear a headset to stop that annoying audio echo."},
+      {word: "Log off", def: "To exit a software application or call space. | Example: I will log off as soon as the meeting finishes."},
+      {word: "In call", def: "Actively participating in a digital video session. | Example: He cannot reply right now because he is in a call."}
+    ]
+  },
+  "9. Asking for Feedback": {
+    roles: { A: "Junior Designer", B: "Senior Reviewer" },
+    dialogue: [
+      "Junior Designer: Hi David, do you have some time? I'd like to ask for feedback on my design.",
+      "Senior Reviewer: Of course. I looked over your campaign layout yesterday afternoon. It's quite interesting.",
+      "Junior Designer: Thanks! Did you notice any major mistakes or structural balance inconsistencies?",
+      "Senior Reviewer: The core value indicators are solid, but you need to refine the side padding metrics.",
+      "Junior Designer: I see. Should I make the text cluster smaller to create more spatial contrast?",
+      "Senior Reviewer: Yes, do that. Also, ensure the color palette matches our design brief parameters exactly.",
+      "Junior Designer: Got it. I will apply these layout adaptations and submit a new revision template.",
+      "Senior Reviewer: Perfect. Getting feedback early is the best way to safeguard our delivery timelines!"
+    ],
+    keywords: [
+      {word: "Feedback", def: "Advice or criticism given about your work performance. | Example: Constructive feedback helps our writers improve."},
+      {word: "Inconsistencies", def: "Errors where things do not match up properly. | Example: There are formatting inconsistencies in paragraph three."},
+      {word: "Refine", def: "To make small improvements to make an asset better. | Example: Let's refine the presentation design before showing the client."},
+      {word: "Design brief", def: "A document detailing instructions for a creative project. | Example: Read the design brief to find the official logo colors."},
+      {word: "Timelines", def: "Schedules showing when different tasks must be finished. | Example: Project managers must enforce clear production timelines."},
+      {word: "Constructive", def: "Useful critique aimed at creating positive improvement. | Example: Please offer constructive notes rather than simple criticism."},
+      {word: "Critique", def: "A detailed analysis or evaluation of an object. | Example: The art director gave a helpful critique of the design."},
+      {word: "Input", def: "Opinions or ideas contributed to a team effort. | Example: We need your expert input on the sales strategy."},
+      {word: "Takeaway", def: "The main point or lesson learned from a meeting. | Example: Our key takeaway is that we need a faster database."},
+      {word: "Revise", def: "To change or correct a file before re-submission. | Example: Please revise the budget sheet based on our discussion."}
+    ]
+  },
+  "10. Writing an Urgent E-mail": {
+    roles: { A: "Account Executive", B: "Copywriter" },
+    dialogue: [
+      "Account Executive: We need to write an urgent e-mail to the client regarding the budget deficit.",
+      "Copywriter: OK. Let's draft a clear, polite opening referring to our yesterday phone call metrics.",
+      "Account Executive: Good idea. Make sure we reference the new pricing table inside paragraph two.",
+      "Copywriter: Understood. I will attach the latest expense spreadsheet as a reference file module.",
+      "Account Executive: Excellent. The text must sound confident so the stakeholder trusts our remediation path.",
+      "Copywriter: I'll include a summary bullet list highlighting our immediate correction steps clearly.",
+      "Account Executive: Perfect. Review the final layout once for spelling before you hit the send button loop.",
+      "Copywriter: Done. The e-mail is off. Let's log this track entry on our account dashboard monitor."
+    ],
+    keywords: [
+      {word: "Deficit", def: "An amount of money lost below a target line. | Example: The department faced a major budget deficit last quarter."},
+      {word: "Confident", def: "Showing certainty and power in your communication style. | Example: She delivered a highly confident pitch to the board."},
+      {word: "Remediation path", def: "The plan used to fix a bad business error. | Example: Legal proposed a remediation path for the compliance issue."},
+      {word: "Reference file", def: "A document attached to explain data fields. | Example: Open the attached reference file to view past sales metrics."},
+      {word: "Asynchronous", def: "Communication that does not happen live in real-time. | Example: E-mail is an asynchronous communication method."},
+      {word: "Follow up", def: "An extra message sent to check status on a request. | Example: I will follow up with the customer next week."},
+      {word: "Cc", def: "To copy secondary people into an email chain. | Example: Please Cc my assistant on all future emails."},
+      {word: "Subject line", def: "The title line visible in an email inbox. | Example: Write a catchy subject line to boost email opening rates."},
+      {word: "Attachment", def: "A digital file sent alongside an email message. | Example: Open the pdf attachment to check the pricing table."},
+      {word: "Draft", def: "An early, unpolished version of a text document. | Example: I finished the first draft of the contract proposal."}
+    ]
+  },
+  "11. Onboarding a New Colleague": {
+    roles: { A: "HR Manager", B: "New Hire" },
+    dialogue: [
+      "HR Manager: Welcome to the team, Alex! Let's start by touring our main office layout nodes.",
+      "New Hire: Thanks! This office looks amazing. The green plant wall creates a beautiful vibe.",
+      "HR Manager: I agree. Now, let's look at our workspace rule overview. Punctuality is a core metric here.",
+      "New Hire: Understood. What are the formal parameters regarding remote work tracking schedules?",
+      "HR Manager: We use a flexible hybrid matrix, but you must log your core tasks inside the tracking tool.",
+      "New Hire: Easy enough. Where do I find our official client profile database records?",
+      "HR Manager: I will send you the intranet link immediately. It holds all our training file modules securely.",
+      "New Hire: Fantastic. Thank you for the smooth onboarding sequence and the warm welcome tour!"
+    ],
+    keywords: [
+      {word: "Onboarding", def: "The training process used to welcome new employees. | Example: Our corporate onboarding sequence lasts three days."},
+      {word: "Overview", def: "A short general summary of a complex topic. | Example: The manager gave a quick overview of company rules."},
+      {word: "Hybrid", def: "A work model mixing office days and home days. | Example: We enjoy a hybrid schedule that permits remote tasks."},
+      {word: "Intranet", def: "A private internal website for company employees only. | Example: Company policy forms are located on the internal intranet."},
+      {word: "Punctuality", def: "The habit of being on time for work and meetings. | Example: Punctuality is vital when meeting premium clients."},
+      {word: "New hire", def: "A freshly employed worker entering the company. | Example: The new hire started training with HR this morning."},
+      {word: "Probation", def: "A trial period testing a new employee's skills. | Example: New staff face a three-month probation window."},
+      {word: "Org chart", def: "A diagram showing company structure and reporting lines. | Example: Review the org chart to see who manages sales."},
+      {word: "Asset checkout", def: "The process of collecting hardware like laptops. | Example: Complete your asset checkout with IT to get your screen."},
+      {word: "Welcome tour", def: "Showing a fresh worker around the physical office layout. | Example: She took the intern on a welcome tour of the facility."}
+    ]
+  },
+  "12. Discussing a Budget / Expenses": {
+    roles: { A: "Department Head", B: "Financial Controller" },
+    dialogue: [
+      "Department Head: We need to analyze our quarterly expenses track. Costs are getting quite high.",
+      "Financial Controller: I agree. Look at this invoice data block. Travel costs have broken our budget limits.",
+      "Department Head: Ah, yes. The international flight bookings generated a major deficit parameter last month.",
+      "Financial Controller: We must reduce non-essential expenses immediately to protect our profit metrics.",
+      "Department Head: Can we modify our client entertainment allocations inside paragraph four of the budget?",
+      "Financial Controller: Yes. If we lower restaurant spending limits, we can balance the capital sheet safely.",
+      "Department Head: Perfect. Please update the master tracking file and log the new target parameters.",
+      "Financial Controller: Done. I will distribute the revised expense document to all active budget nodes now."
+    ],
+    keywords: [
+      {word: "Expenses", def: "The money spent to power business operations. | Example: Keep receipts for all your travel expenses."},
+      {word: "Invoice", def: "An official commercial document requesting payment for items. | Example: The supplier sent an invoice for the office desks."},
+      {word: "Profit", def: "The financial gain left after subtracting total expenses. | Example: Our company profit grew by five percent last quarter."},
+      {word: "Master file", def: "The core master spreadsheet that stores main data fields. | Example: Update the master file with the new financial parameters."},
+      {word: "Non-essential", def: "Things that are nice to have but not required to work. | Example: Free snacks are considered non-essential expenses."},
+      {word: "Quarter", def: "A three-month period inside the business calendar. | Example: Sales targets increased during the third quarter."},
+      {word: "Allocation", def: "An amount of cash set aside for a specific purpose. | Example: Our department received a large marketing allocation."},
+      {word: "Cut costs", def: "To reduce spending to protect profit levels. | Example: We must cut costs on international travel this year."},
+      {word: "Reimburse", def: "To pay back money that an employee spent out of pocket. | Example: The company will reimburse your taxi fare tomorrow."},
+      {word: "Fiscal health", def: "The overall financial strength of a business enterprise. | Example: Low debt indicates excellent fiscal health."}
+    ]
+  },
+  "13. Brainstorming Campaign Ideas": {
+    roles: { A: "Creative Director", B: "Marketing Strategist" },
+    dialogue: [
+      "Creative Director: Welcome to our idea loop! Let's brainstorm concepts for the product launch.",
+      "Marketing Strategist: I have an idea. We could design a viral social media post using a custom hashtag challenge.",
+      "Creative Director: Brilliant! That's a great idea. It will drive massive engagement scales among young consumers.",
+      "Marketing Strategist: Yes, and we can build on that by launching a structured influencer match sequence.",
+      "Creative Director: Perfect. Let's make sure the visual design frame aligns with our design brief templates.",
+      "Marketing Strategist: Definitely. I will organize our core message indicators to match brand parameters exactly.",
+      "Creative Director: Great! Let's map these concepts onto a digital whiteboard layout before the session closes.",
+      "Marketing Strategist: Excellent. I will log the final campaign brief objects inside our tracking node now."
+    ],
+    keywords: [
+      {word: "Brainstorm", def: "A group meeting to generate quick creative ideas. | Example: Let's brainstorm new concepts for the ad campaign."},
+      {word: "Viral", def: "Content that spreads incredibly fast across the internet. | Example: The funny video went viral on social media."},
+      {word: "Whiteboard", def: "A glossy board used to sketch concepts or notes. | Example: Write your project ideas down on the digital whiteboard."},
+      {word: "Engagement", def: "Customer interactions like clicks, shares, and likes. | Example: Our social media engagement dropped last week."},
+      {word: "Brief", def: "The instruction document that maps project targets. | Example: Check the campaign brief to confirm the target audience."},
+      {word: "Target audience", def: "The primary group of consumers you want to reach. | Example: Teenagers are the main target audience for this app."},
+      {word: "Pitch", def: "A presentation made to sell an idea or product. | Example: We need to practice our sales pitch before meeting the buyer."},
+      {word: "Out-of-the-box", def: "Highly creative and unusual ideas that reject standard formulas. | Example: We need an out-of-the-box strategy to win this market."},
+      {word: "Identity", def: "The unique visual style and personality of a brand. | Example: Changing the company logo ruined our brand identity."},
+      {word: "Concept", def: "A basic foundational idea behind an advertising track. | Example: She presented three separate design concepts to the client."}
+    ]
+  },
+  "14. The Performance Review": {
+    roles: { A: "Manager", B: "Employee" },
+    dialogue: [
+      "Manager: Welcome, Alex! Let's begin your annual performance review loop. It's a key tracking milestone.",
+      "Employee: Thank you. I am looking forward to reviewing my metrics and discussing my growth parameters.",
+      "Manager: Excellent. Looking at your data, your sales velocity scales have been incredibly high this year.",
+      "Employee: Thanks! I worked hard to optimize my account management matrix and streamline my pipeline paths.",
+      "Manager: It shows. You've hit all your milestone targets cleanly. However, we need to talk about report logs.",
+      "Employee: Ah, yes. Sometimes my administrative updates are delayed when my client loop gets busy.",
+      "Manager: Understood, but tracking compliance is vital. Let's establish a new schedule parameter for logs.",
+      "Employee: That sounds like a reasonable compromise. I will make sure my report inputs stay perfectly punctual!"
+    ],
+    keywords: [
+      {word: "Review", def: "A regular evaluation of an employee's work quality. | Example: I have my annual performance review with the manager today."},
+      {word: "Velocity", def: "The speed or rate at which business tasks occur. | Example: We need to increase our sales velocity to hit targets."},
+      {word: "Pipeline", def: "The visual tracking stage showing active deals in progress. | Example: There are five potential clients in our sales pipeline."},
+      {word: "Administrative", def: "Routine office tasks like paperwork and data entry. | Example: Spending hours on administrative updates delays product design."},
+      {word: "Compliance", def: "Following strict official company laws and security regulations. | Example: Data encryption ensures compliance with safety metrics."},
+      {word: "KPI", def: "Key Performance Indicator used to measure success. | Example: Number of new clients is my main performance KPI."},
+      {word: "Skillset", def: "The complete range of skills a worker possesses. | Example: Excel coding is an excellent skillset for financial analysis."},
+      {word: "Appraisal", def: "An official assessment scoring a worker's achievements. | Example: HR completed my salary appraisal yesterday morning."},
+      {word: "Objective", def: "A specific target goal you promise to achieve. | Example: Our primary objective is to launch the website this month."},
+      {word: "Growth potential", def: "An employee's capacity to climb into higher rank slots. | Example: He shows immense growth potential as a team manager."}
+    ]
+  },
+  "15. Leaving the Office / Saying Goodbye": {
+    roles: { A: "Colleague", B: "Departing Team Member" },
+    dialogue: [
+      "Colleague: It's five o'clock! Are you packing your laptop asset bundle for the day?",
+      "Departing Team Member: Yes, I am leaving now. My task stack is completely clear for the first time this week.",
+      "Colleague: Wonderful. Do you have any exciting personal activity loops planned for the evening?",
+      "Departing Team Member: Nothing special. I'm just going to have dinner with my family and try to relax.",
+      "Colleague: Sounds perfect. Remember to lock down your workspace terminal parameter before you walk out.",
+      "Departing Team Member: Done. My system node is logged off securely. Everything is safe for the night.",
+      "Colleague: Great! Have a good evening and a relaxing journey home on the Tube transit line.",
+      "Departing Team Member: Thanks, you too! See you tomorrow morning at nine o'clock when the status loop opens."
+    ],
+    keywords: [
+      {word: "Task stack", def: "The list of daily duties assigned to an employee desk node. | Example: My task stack is too heavy this week."},
+      {word: "Logged off", def: "Disconnecting your digital profile from a computer server. | Example: Make sure you are logged off before leaving your desk."},
+      {word: "Transit", def: "The train or bus transport infrastructure system. | Example: Public transit makes commuting to the center very easy."},
+      {word: "Terminal", def: "The computer station hardware where you enter data fields. | Example: Do not leave your terminal unlocked when walking away."},
+      {word: "Status loop", def: "A regular group alignment check. | Example: The team reviews daily tasks during the morning status loop."},
+      {word: "Clock out", def: "To log your exit time on an attendance tracking app. | Example: The hourly staff always clock out at precisely five o'clock."},
+      {word: "See you", def: "A casual parting phrase shared between coworkers. | Example: Have a great night, see you tomorrow morning."},
+      {word: "Lock up", def: "Securing doors or physical file bays before leaving. | Example: The security guard will lock up the main building at night."},
+      {word: "Commute", def: "The daily journey made from home to an office location. | Example: My morning commute takes forty minutes by train."},
+      {word: "Overtime", def: "Extra hours worked past regular contractual shift limits. | Example: She earned overtime pay by finishing the presentation late."}
+    ]
+  },
+  "16. Invoicing & Billing Discrepancies": {
+    roles: { A: "Accountant", B: "Client Service Lead" },
+    dialogue: [
+      "Accountant: I am reviewing the quarterly accounts, and invoice number forty-two contains an error.",
+      "Client Service Lead: Really? What is the issue with that specific billing layout block?",
+      "Accountant: The discount parameter was not applied, so the total amount is too high.",
+      "Client Service Lead: Oh, I see the mistake. We manually altered the hours but missed the credit note.",
+      "Accountant: I will issue a revised statement immediately to adjust our receivable records.",
+      "Client Service Lead: Perfect. Please copy the client account manager on that financial transmission.",
+      "Accountant: Done. The modified file is uploaded, and the systemic discrepancy score is now zero.",
+      "Client Service Lead: Thanks for resolving this quickly. Accurate billing preserves our corporate trust."
+    ],
+    keywords: [
+      {word: "Invoice number", def: "A tracking code tracking a distinct business sale. | Example: Quote the invoice number printed at the top left."},
+      {word: "Credit note", def: "A voucher reducing an active invoice total balance sum. | Example: We issued a credit note to fix the overcharge."},
+      {word: "Discrepancy", def: "An error found between distinct ledger values. | Example: I spotted a discrepancy between these two balance sheets."},
+      {word: "Receivables", def: "The ledger track logging funds owed to a corporation by clients. | Example: The accountant updates our receivables every Friday."},
+      {word: "Layout block", def: "The visual configuration of data slots inside bills. | Example: The total price slot is located inside the bottom layout block."},
+      {word: "Arrears", def: "An account status where payments are late. | Example: The buyer's profile fell into arrears last month."},
+      {word: "Audit trail", def: "Clear document evidence tracking cash movements step-by-step. | Example: Keep every receipt to preserve a clean corporate audit trail."},
+      {word: "Itemized line", def: "A spreadsheet row detailing costs for one specific resource block. | Example: Check the itemized line for hardware delivery fees."},
+      {word: "Tax rate", def: "The percentage value scaling invoice totals for legal collections. | Example: The local tax rate increased by two percent."},
+      {word: "Overcharge", def: "An error where a system charges a higher metric than agreed. | Example: Please refund this twenty dollar overcharge immediately."}
+    ]
+  },
+  "17. Chasing Late Payments": {
+    roles: { A: "Credit Controller", B: "Procurement Manager" },
+    dialogue: [
+      "Credit Controller: Good afternoon. I am calling regarding invoice fifty-five, which is now thirty days overdue.",
+      "Procurement Manager: Hello. Let me pull up your company profile in our payment pipeline portal now.",
+      "Credit Controller: Our records indicate the final clearance date closed on the first of last month.",
+      "Procurement Manager: You are correct. It looks like the transaction authorization loop is stuck in our secondary check.",
+      "Credit Controller: We require payment validation by Friday to avoid automated late-fee calculation parameters.",
+      "Procurement Manager: I understand completely. I will expedite the electronic transfer request right away.",
+      "Credit Controller: Thank you. Please send the remittance advice document as soon as it clears.",
+      "Procurement Manager: Will do. I appreciate your patience while we fix this administrative bottleneck."
+    ],
+    keywords: [
+      {word: "Overdue", def: "A debt balance that has passed its agreed clearance date. | Example: This client account file is two weeks overdue."},
+      {word: "Remittance", def: "A digital notification document proving a wire transfer occurred. | Example: Please email the remittance sheet before Friday afternoon."},
+      {word: "Expedite", def: "To accelerate the administrative execution speed of a process. | Example: We must expedite the approval loop for this high-value buyer."},
+      {word: "Pipeline portal", def: "The software application managing dynamic vendor payments. | Example: Check the pipeline portal to track pending cash allocations."},
+      {word: "Bottleneck", def: "A congestion vector causing workflow speed drop-offs. | Example: Management signature queues create an annoying bottleneck."},
+      {word: "Dunning loop", def: "Automated alert sequences used to message tardy client debt logs. | Example: Launch the dunning loop for clients in arrears."},
+      {word: "Outstanding sum", def: "The exact money totals remaining unpaid on ledger files. | Example: The client paid the deposit but the outstanding sum remains."},
+      {word: "Grace window", def: "Extra delay days permitted before charging fines. | Example: We offer a seven-day grace window before applying penalties."},
+      {word: "Liquidity", def: "The cash levels available to fulfill instant payment needs. | Example: Strong sales numbers increased our company liquidity scores."},
+      {word: "Settlement speed", def: "The velocity rating measuring how fast customers clear invoices. | Example: Our settlement speed dropped during the winter quarter."}
+    ]
+  },
+  "18. Negotiating a Vendor Contract": {
+    roles: { A: "Operations Director", B: "Supplier Rep" },
+    dialogue: [
+      "Operations Director: Thank you for joining the call. Let's look over the service level agreement metrics.",
+      "Supplier Rep: Happy to be here. We are excited to renew our delivery partnership contract with you.",
+      "Operations Director: Your baseline unit cost is fair, but the recurring maintenance fee parameters are too high.",
+      "Supplier Rep: That fee covers twenty-four-hour hardware support coverage from our expert engineering nodes.",
+      "Operations Director: If we increase our order volume by ten percent, can you reduce that fee parameter?",
+      "Supplier Rep: If you agree to a two-year commitment block, we can cut the fee value down.",
+      "Operations Director: That sounds like a reasonable compromise to optimize our operational expenditure models.",
+      "Supplier Rep: Perfect. I will draft the updated framework agreement and send it over before evening."
+    ],
+    keywords: [
+      {word: "SLA agreement", def: "A text contract setting performance benchmarks for vendors. | Example: The IT provider broke our corporate SLA agreement metrics."},
+      {word: "Unit cost", def: "The production cost calculated for a single individual resource item. | Example: Buying bulk components reduces our baseline unit cost."},
+      {word: "Commitment block", def: "A legal time envelope forcing entities to stay with a contract. | Example: The cloud host offers discounts for a three-year commitment block."},
+      {word: "Expenditure", def: "The operational cash capital outflows spent on sustaining business. | Example: Travel expenditure jumped significantly last month."},
+      {word: "Vendor", def: "An external supplier company trading system solutions or raw goods. | Example: We hired a local software vendor to design our database network."},
+      {word: "Procure", def: "The active strategic sourcing steps used to buy assets safely. | Example: Our department intends to procure ten new designer terminal desks."},
+      {word: "Liability limits", def: "Contract lines capping a firm's damage payouts during errors. | Example: Check the contract addendum to clarify your liability limits safely."},
+      {word: "Termination terms", def: "Legal guidelines mapping exit procedures for business partners. | Example: The termination terms demand a ninety-day notice loop window."},
+      {word: "Leverage", def: "Using a metric advantage to squeeze discount concessions from targets. | Example: Our massive market presence grants us leverage during contract talks."},
+      {word: "Addendum", def: "An extra sheet attached to modify a master contract framework cleanly. | Example: We signed an addendum altering pricing variables for Q4."}
+    ]
+  },
+  "19. Cross-Department Sync / Alignment": {
+    roles: { A: "Product Manager", B: "Sales Director" },
+    dialogue: [
+      "Product Manager: Hi Sarah! Let's sync on the software launch window before the engineering team locks it in.",
+      "Sales Director: Great timing. My team needs the exact feature availability parameters for our client pitches.",
+      "Product Manager: The core system dashboard will go live on October first, but the mobile link is delayed.",
+      "Sales Director: That's a critical mismatch. Many high-value client targets requested mobile execution profiles first.",
+      "Product Manager: Can your sales agents focus the initial demo loop on the desktop analytics feature set?",
+      "Sales Director: Yes, we can adapt our narrative layout if you promise mobile integration by quarter-end.",
+      "Product Manager: Absolutely, that timeline alignment is fully backed by our technical resource allocation parameters.",
+      "Sales Director: Excellent. Let's schedule a collective alignment workshop for both of our teams next Monday."
+    ],
+    keywords: [
+      {word: "Sync", def: "A meeting focused on aligning separate teams toward one path. | Example: Let's sync briefly tomorrow to ensure cross-department balance."},
+      {word: "Availability", def: "The release status verifying when product features become usable. | Example: Check the roadmap matrix to confirm software feature availability."},
+      {word: "Mismatch", def: "An unaligned deviation where separate paths or fields disagree. | Example: The design brief palette and final web build show a critical mismatch."},
+      {word: "Demo loop", def: "A structured sequence showing software functions to buyers. | Example: Run the client through our live dashboard demo loop."},
+      {word: "Integration", def: "Connecting separate application code nodes into unified modules. | Example: Database integration requires support from our engineering squad."},
+      {word: "Silo", def: "An isolation state where a group hides task data fields from coworkers. | Example: Operating in a silo slows production velocities down severely."},
+      {word: "Touchpoint", def: "A regular contact interface connecting discrete workflow tracks. | Example: Morning standups act as a vital cross-team touchpoint."},
+      {word: "Roadmap", def: "A master visual chart showing future target delivery metrics cleanly. | Example: Our company roadmap features three major app updates this year."},
+      {word: "Buy-in", def: "Securing full support or consensus authorization from executives. | Example: We cannot change marketing software without the director's buy-in."},
+      {word: "Handshake", def: "An interface agreement protocol establishing collaboration targets. | Example: Production leads completed a technical handshake before code deployment loops."}
+    ]
+  },
+  "20. Handing Over a Project / Transition": {
+    roles: { A: "Outgoing Lead", B: "Incoming Lead" },
+    dialogue: [
+      "Outgoing Lead: Thanks for sitting down with me. Let's go over the active account handover documentation.",
+      "Incoming Lead: I appreciate it. I want to make sure I understand all ongoing client deliverables.",
+      "Outgoing Lead: The main communication log is tracked inside the central CRM database workspace.",
+      "Incoming Lead: Perfect. Are there any critical milestone target paths closing in the next few weeks?",
+      "Outgoing Lead: Yes, the Apex Group media campaign requires a final assets review by next Thursday afternoon.",
+      "Incoming Lead: Got it. I will review their profile variables and assign tasks to the creative squad.",
+      "Outgoing Lead: Excellent. All past invoice records and budget metrics are archived securely in folder B.",
+      "Incoming Lead: Looks great. Thanks for structuring such a smooth and clear project transition sequence!"
+    ],
+    keywords: [
+      {word: "Handover", def: "Transferring records and duties when leadership roles switch. | Example: The departing executive submitted her project handover file cleanly."},
+      {word: "Deliverables", def: "Tangible digital assets or products promised to customer loops. | Example: Quality compliance checks ensure our deliverables remain flawless."},
+      {word: "Communication log", def: "A history log tracking all client touchpoint interactions. | Example: Every support phone call is saved inside the central communication log."},
+      {word: "Transition", def: "The bridge period where access configurations and duties shift. | Example: Our corporate branch transition took two weeks to execute cleanly."},
+      {word: "Squad", def: "An agile cross-functional team tackling specific project lines. | Example: The design squad holds a daily alignment loop at noon."},
+      {word: "Successor", def: "The arriving professional taking over an empty employee slot. | Example: The incoming manager acts as the successor to Sarah's role."},
+      {word: "Knowledge dump", def: "A documentation loop built to preserve unwritten team insights. | Example: Schedule a final meeting to run a complete project knowledge dump."},
+      {word: "Archived stack", def: "Historical data files stored away outside active tracking lines. | Example: Old invoice records from three years ago sit inside our archived stack."},
+      {word: "Account profile", def: "The consumer preference data matrix explaining customer needs maps. | Example: Read the account profile before pitching the pricing strategy."},
+      {word: "Sign-off", def: "Managerial validation used to lock down and conclude task paths. | Example: Secure a smooth sign-off from the auditor before leaving."}
+    ]
+  },
+  "21. Dealing with a Difficult Coworker": {
+    roles: { A: "Team Member", B: "HR Specialist" },
+    dialogue: [
+      "Team Member: Hello, do you have a private window available? I need to discuss a recurring workplace conflict.",
+      "HR Specialist: Of course, come in. Please outline the professional behavioral boundaries that are causing concern.",
+      "Team Member: My project counterpart constantly interrupts our status loops and dismisses my task inputs.",
+      "HR Specialist: That behavior directly undermines our collective collaboration guidelines and team morale metrics.",
+      "Team Member: Exactly. I tried to resolve it directly, but the communication breakdown remains severe.",
+      "HR Specialist: Understood. Let's document these specific incidents inside our official internal logging system.",
+      "Team Member: Thank you. I want to maintain productivity without creating unnecessary corporate friction.",
+      "HR Specialist: Absolutely. I will schedule a structured mediation loop to realign professional expectations cleanly."
+    ],
+    keywords: [
+      {word: "Workplace conflict", def: "A structural disagreement or friction disrupting office workflows. | Example: HR stepped in to manage the workplace conflict between leads."},
+      {word: "Behavioral boundaries", def: "The professional limits regulating acceptable conduct in offices. | Example: Overtime arguments often breach our standard behavioral boundaries cleanly."},
+      {word: "Counterpart", def: "An employee occupying an equivalent rank node in a different team. | Example: Our marketing lead met with her technical engineering counterpart yesterday."},
+      {word: "Undermines", def: "Actions that weaken or devalue a coworker's operational authority. | Example: Interrupting presentations openly undermines the lead designer's metric tracking scores."},
+      {word: "Guidelines", def: "Explicit parameter rules explaining acceptable workplace interaction models. | Example: Review company guidelines to check the protocol for remote logging tools."},
+      {word: "Breakdown", def: "A severe failure state where communication streams stop functioning. | Example: A technical breakdown inside email clusters caused massive delivery lags."},
+      {word: "Logging system", def: "The enterprise database app used to save official corporate notes. | Example: File your formal safety report inside our internal logging system."},
+      {word: "Friction", def: "Resistance causing speed loss or arguments inside a workspace group. | Example: Interpersonal friction between account managers delayed the project handshake loop."},
+      {word: "Mediation loop", def: "A guided resolution meeting built to fix disputing worker cells. | Example: HR scheduled a mediation loop to solve the workspace friction smoothly."},
+      {word: "Expectations", def: "The performance baselines mapped out for workers within contracts. | Example: Meeting monthly sales objectives matches company performance expectations perfectly."}
+    ]
+  }
+};
+
+let selectedButton = null; 
+let conversationIndices = []; 
+let workingPool = []; 
+let currentCardIndex = 0; 
+let currentKeywords = []; 
+
+function buildMenu() { 
+  const menu = document.getElementById("topicMenu"); 
+  menu.innerHTML = ""; 
+  Object.keys(topics).forEach((title, idx) => { 
+    const btn = document.createElement("button");
+    btn.className = "topic-btn"; 
+    btn.textContent = title; 
+    if(idx === 0) { 
+      btn.classList.add("active"); 
+      selectedButton = btn;
+    } 
+    btn.onclick = (e) => handleTopicSwitch(e.target, title); 
+    menu.appendChild(btn); 
+  }); 
+} 
+
+function handleTopicSwitch(targetBtn, title) { 
+  if(selectedButton) selectedButton.classList.remove("active"); 
+  targetBtn.classList.add("active"); 
+  selectedButton = targetBtn;
+  loadTopic(title); 
+} 
+
+function loadTopic(title) { 
+  const data = topics[title]; 
+  workingPool = data.dialogue.map((text, index) => ({ text, originalIndex: index }));
+  for (let i = workingPool.length - 1; i > 0; i--) { 
+    const j = Math.floor(Math.random() * (i + 1));
+    [workingPool[i], workingPool[j]] = [workingPool[j], workingPool[i]]; 
+  } 
+  currentKeywords = data.keywords; 
+  currentCardIndex = 0; 
+  renderKeywordsAndSample(data); 
+  updateFlashcard(); 
+  resetConversation();
+} 
+
+function renderKeywordsAndSample(data) { 
+  const kwBox = document.getElementById("keywordBox"); 
+  kwBox.innerHTML = "";
+  data.keywords.forEach(kw => {
+    const div = document.createElement("div");
+    div.className = "keyword-tag";
+    div.innerHTML = `${kw.word} <span>${kw.def}</span>`;
+    kwBox.appendChild(div);
+  });
+
+  const sampleBox = document.getElementById("sampleConvBox");
+  sampleBox.innerHTML = `<p style="font-weight:700; margin-bottom:16px; color:var(--primary-700);">Chronological Sequence Reference:</p>` + 
+    data.dialogue.map(line => `<p style="margin: 8px 0;">${boldRoles(line, data.roles)}</p>`).join("");
+}
+
+function boldRoles(text, roles) {
+  const roleKeys = Object.values(roles).map(r => r + ":");
+  let targetKey = "";
+  let roleClass = "";
+  
+  if (text.startsWith(Object.values(roles)[0] + ":")) {
+    targetKey = Object.values(roles)[0] + ":";
+    roleClass = "role-a";
+  } else if (text.startsWith(Object.values(roles)[1] + ":")) {
+    targetKey = Object.values(roles)[1] + ":";
+    roleClass = "role-b";
+  }
+
+  if (targetKey) {
+    return `<span class="role-tag ${roleClass}">${targetKey.replace(':','')}</span>` + text.substring(targetKey.length);
+  }
+  return text;
+}
+
+function formatRoles(text) {
+  if (!selectedButton) return text;
+  const data = topics[selectedButton.textContent];
+  return boldRoles(text, data.roles);
+}
+
+function updateFlashcard() { 
+  document.getElementById("cardElement").classList.remove("flipped"); 
+  if(currentKeywords && currentKeywords.length > 0) { 
+    const currentItem = currentKeywords[currentCardIndex]; 
+    document.getElementById("cardFrontText").textContent = currentItem.word;
+    document.getElementById("cardBackText").textContent = currentItem.def; 
+    document.getElementById("cardTracker").textContent = `${currentCardIndex + 1} / ${currentKeywords.length}`; 
+  } 
+} 
+
+function toggleCard() {
+  document.getElementById("cardElement").classList.toggle("flipped");
+}
+
+function prevCard(event) { 
+  event.stopPropagation();
+  if (currentCardIndex > 0) { 
+    currentCardIndex--; 
+    updateFlashcard(); 
+  } 
+} 
+
+function nextCard(event) { 
+  event.stopPropagation();
+  if (currentCardIndex < currentKeywords.length - 1) { 
+    currentCardIndex++; 
+    updateFlashcard(); 
+  } 
+} 
+
+function resetConversation() {
+  conversationIndices = [];
+  renderPool();
+  document.getElementById("conversationBox").innerHTML = `
+    <p style="color:var(--text-muted); font-style:italic; text-align:center; margin-top:150px; font-size:16px;">
+      Select statements from the Shuffled Workspace Statements panel on the left to arrange them in their correct chronological workspace order.
+    </p>`;
+}
+
+function renderPool() {
+  const pool = document.getElementById("phrasePool");
+  pool.innerHTML = "";
+  workingPool.forEach((item, index) => {
+    const btn = document.createElement("button");
+    btn.className = "phrase-btn";
+    btn.innerHTML = formatRoles(item.text);
+    btn.onclick = () => pickLine(index);
+    btn.id = "pool-btn-" + index;
+    pool.appendChild(btn);
+  });
+}
+
+function pickLine(poolIndex) {
+  const item = workingPool[poolIndex];
+  conversationIndices.push(item);
+  
+  const btn = document.getElementById("pool-btn-" + poolIndex);
+  btn.disabled = true;
+  btn.classList.add("used");
+
+  renderConversationLines();
+}
+
+function renderConversationLines() {
+  const box = document.getElementById("conversationBox");
+  if (conversationIndices.length === 0) {
+    resetConversation();
+    return;
+  }
+  
+  box.innerHTML = conversationIndices.map((item, idx) => `
+    <div class="line-item" style="position:relative;">
+      <span style="position:absolute; top:4px; right:8px; font-size:11px; font-weight:600; color:var(--text-muted);">#${idx + 1}</span>
+      ${formatRoles(item.text)}
+    </div>
+  `).join("");
+}
+
+function checkConversation() {
+  const currentLines = topics[selectedButton.textContent].dialogue;
+  const box = document.getElementById("conversationBox");
+  
+  if(conversationIndices.length !== currentLines.length) {
+    box.innerHTML = `<p style="color:var(--error); font-weight:600; font-size:17px; margin-bottom:12px;">⚠️ Incomplete workspace sequence! You must map all dialogue parameters.</p>` + box.innerHTML;
+    return;
+  }
+
+  let allCorrect = true;
+  let feedback = "";
+
+  for(let i=0; i < currentLines.length; i++) {
+    if(conversationIndices[i].originalIndex === i) {
+      feedback += `<p style="color: var(--success); margin: 6px 0; font-size: 16.5px;">✔ ${formatRoles(conversationIndices[i].text)}</p>`;
+    } else {
+      allCorrect = false;
+      feedback += `<p style="color: var(--error); margin: 6px 0; font-size: 16.5px;">✘ ${formatRoles(conversationIndices[i].text)}</p>`;
+    }
+  }
+
+  box.innerHTML = allCorrect
+    ? `<p style="color:var(--success); font-weight:600; font-size:18px; margin-bottom:12px;">🎉 Flawless Synchronization! The statement alignment matches perfectly.</p>${feedback}`
+    : `<p style="color:var(--error); font-weight:600; font-size:18px; margin-bottom:12px;">Sequence mismatches spotted. Click 'Clear Options' to try again.</p>${feedback}`;
+}
+
+function showCorrectOrder() {
+  const currentLines = topics[selectedButton.textContent].dialogue;
+  const box = document.getElementById("conversationBox");
+  const data = topics[selectedButton.textContent];
+  box.innerHTML = `
+    <p style="color:var(--primary-700); font-weight:600; font-size:18px; margin-bottom:12px;">Official Answer Key Tracking Sequence:</p>
+    ${currentLines.map(s => `<div class="line-item" style="margin-bottom:8px;">• ${boldRoles(s, data.roles)}</div>`).join("")}
+  `;
+}
+
+// Initialize Application
+buildMenu();
+loadTopic(Object.keys(topics)[0]);
+</script>
+
+</body>
+</html>
